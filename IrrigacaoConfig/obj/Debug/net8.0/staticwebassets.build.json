@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "EsZucCaJKU80B+eKXlAV6hPF1wVzNGZSVEbqzHSApeQ=",
+  "Source": "IrrigacaoConfig",
+  "BasePath": "_content/IrrigacaoConfig",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "IrrigacaoConfig\\wwwroot",
+      "Source": "IrrigacaoConfig",
+      "ContentRoot": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\",
+      "BasePath": "_content/IrrigacaoConfig",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\app.js",
+      "SourceId": "IrrigacaoConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\",
+      "BasePath": "_content/IrrigacaoConfig",
+      "RelativePath": "app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.js"
+    },
+    {
+      "Identity": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\index.html",
+      "SourceId": "IrrigacaoConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\",
+      "BasePath": "_content/IrrigacaoConfig",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\styles.css",
+      "SourceId": "IrrigacaoConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\082240023\\Downloads\\IrrigacaoConfig\\IrrigacaoConfig\\wwwroot\\",
+      "BasePath": "_content/IrrigacaoConfig",
+      "RelativePath": "styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles.css"
+    }
+  ]
+}

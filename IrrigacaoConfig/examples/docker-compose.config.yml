@@ -1,0 +1,29 @@
+# Adicione este serviço ao docker-compose que já sobe o Mosquitto/FIWARE/MongoDB no EC2.
+# Ajuste os nomes "mongo-db" e "orion" para os nomes dos serviços do SEU compose.
+services:
+  irrigacao-config:
+    build: ./IrrigacaoConfig
+    container_name: irrigacao-config
+    restart: unless-stopped
+    ports:
+      - "5080:5080"
+    environment:
+      Storage__ConnectionString: "mongodb://mongo-db:27017"
+      Projects__0__ProjectId: "irrig001"
+      Projects__0__ClaimCode: "${IRRIG001_CLAIM_CODE}"
+      Projects__0__OrionEntityId: "urn:ngsi-ld:Irrigation:001"   # confira com GET /v2/entities
+      Projects__0__OrionEntityType: "Irrigation"
+      Gemini__ApiKey: "${GEMINI_API_KEY}"
+      Orion__Enabled: "true"
+      Orion__BaseUrl: "http://orion:1026"
+      Orion__FiwareService: "smart"
+      Orion__FiwareServicePath: "/"
+      Security__ServiceApiKey: "${CONFIG_SERVICE_API_KEY}"
+      Security__DashboardOrigins__0: "http://SEU-IP-EC2:3000"
+    volumes:
+      - irrig-config-keys:/app/keys   # mantém o login válido entre reinícios
+    depends_on:
+      - mongo-db
+
+volumes:
+  irrig-config-keys:

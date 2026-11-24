@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f7d32">
+  <title>Irrigação inteligente · Configurações</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-8m0 0c0-4 3-7 8-7 0 4-3 7-8 7Zm0-2C12 7 9.5 4.5 4 4.5 4 9 7 11 12 11Z"/></svg>
+    <span>Irrigação inteligente</span>
+  </div>
+  <div id="userBox" class="user" hidden>
+    <span id="userName"></span>
+    <button id="logoutBtn" class="link">Sair</button>
+  </div>
+</header>
+
+<main>
+  <!-- ============ Login / Cadastro ============ -->
+  <section id="authView" class="card narrow" hidden>
+    <div class="tabs" role="tablist">
+      <button role="tab" class="tab active" data-tab="login">Entrar</button>
+      <button role="tab" class="tab" data-tab="register">Cadastrar projeto</button>
+    </div>
+
+    <form id="loginForm" class="stack">
+      <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+      <label>Senha<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Entrar</button>
+    </form>
+
+    <form id="registerForm" class="stack" hidden>
+      <p class="hint">Você vira o dono do projeto. O código de ativação fica no appsettings do servidor (Projects → ClaimCode).</p>
+      <label>Seu nome<input name="name" autocomplete="name" required maxlength="80"></label>
+      <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+      <label>Senha (mín. 8)<input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+      <div class="row2">
+        <label>ID do projeto<input name="projectId" value="irrig001" required></label>
+        <label>Código de ativação<input name="claimCode" required autocomplete="off"></label>
+      </div>
+      <button class="primary" type="submit">Criar conta e assumir projeto</button>
+    </form>
+    <p id="authError" class="error" role="alert"></p>
+  </section>
+
+  <!-- ============ App ============ -->
+  <section id="appView" hidden>
+    <div class="project-bar">
+      <label class="inline">Projeto
+        <select id="projectSelect"></select>
+      </label>
+      <button id="claimToggle" class="ghost">+ Adicionar projeto</button>
+      <span id="versionInfo" class="muted"></span>
+    </div>
+    <form id="claimForm" class="card inline-form" hidden>
+      <input name="projectId" placeholder="ID (ex.: irrig002)" required>
+      <input name="claimCode" placeholder="Código de ativação" required autocomplete="off">
+      <button class="primary" type="submit">Assumir</button>
+    </form>
+
+    <div class="grid">
+      <!-- -------- Planta -------- -->
+      <section class="card">
+        <h2>Planta monitorada</h2>
+        <div id="currentPlant" class="current-plant"></div>
+
+        <div class="photo-actions">
+          <label class="primary file-btn">
+            <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
+            📷 Tirar foto
+          </label>
+          <label class="ghost file-btn">
+            <input id="galleryInput" type="file" accept="image/*" hidden>
+            Escolher da galeria
+          </label>
+        </div>
+        <form id="nameForm" class="inline-form">
+          <input name="plantName" placeholder="…ou digite o nome (ex.: manjericão)" maxlength="80" required>
+          <button class="ghost" type="submit">Sugerir</button>
+        </form>
+
+        <div id="aiBusy" class="busy" hidden><span class="spinner"></span> A IA está analisando…</div>
+        <p id="plantError" class="error" role="alert"></p>
+
+        <div id="suggestion" class="suggestion" hidden>
+          <div class="sugg-head">
+            <img id="photoPreview" alt="" hidden>
+            <div>
+              <label class="compact">Nome popular<input id="sgName" maxlength="80"></label>
+              <label class="compact">Nome científico<input id="sgSci" maxlength="120"></label>
+              <div class="confidence"><div id="sgConfBar"></div></div>
+              <small id="sgConfText" class="muted"></small>
+            </div>
+          </div>
+          <ul id="sgWarnings" class="warnings"></ul>
+          <div id="sgAlternatives" class="chips"></div>
+          <p id="sgCare" class="care"></p>
+          <p id="sgWater" class="care"></p>
+          <h3>Faixas sugeridas <small class="muted">(edite se quiser)</small></h3>
+          <div id="sgThresholds" class="thresholds"></div>
+          <div class="actions">
+            <button id="applyBtn" class="primary">Aplicar ao dashboard</button>
+            <button id="discardBtn" class="ghost">Descartar</button>
+          </div>
+          <p class="hint">A IA só orienta: os valores viram faixas de alerta e cores no dashboard. Ela não aciona a bomba.</p>
+        </div>
+      </section>
+
+      <!-- -------- Variáveis globais -------- -->
+      <section class="card">
+        <h2>Variáveis globais</h2>
+        <form id="settingsForm" class="stack">
+          <label>E-mail de alertas (Monitor .NET)<input name="alertEmail" type="email" required></label>
+          <label>Alerta de reservatório: distância da água maior que (cm)
+            <input name="reservoirAlertDistanceCm" type="number" step="1" min="1" max="1000" required>
+          </label>
+
+          <h3>Faixas do dashboard</h3>
+          <div id="stThresholds" class="thresholds"></div>
+
+          <h3>Variáveis personalizadas</h3>
+          <p class="hint">Marque “pública” para enviar ao dashboard/Orion. As privadas só saem pelo endpoint interno (X-Api-Key).</p>
+          <div id="varsList" class="vars"></div>
+          <button id="addVarBtn" type="button" class="ghost small">+ Variável</button>
+
+          <button class="primary" type="submit">Salvar configurações</button>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>IrrigacaoConfig</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Exemplos são para colar nos outros projetos, não fazem parte deste app. -->
+    <Compile Remove="examples/**" />
+    <Content Remove="examples/**" />
+    <None Remove="examples/**" />
+    <PackageReference Include="MongoDB.Driver" Version="3.*" />
+  </ItemGroup>
+
+</Project>
