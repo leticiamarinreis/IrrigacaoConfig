@@ -577,7 +577,34 @@ irrigacao-inteligente/
 
 ---
 
+<a id="manual"></a>
+
+## 📖 Manual do Usuário
+
+O manual completo (24 páginas, formato A4) reúne em um só documento a implantação passo a passo, o uso do dashboard e do assistente de IA, o controle local no Wokwi, os cenários de teste, a solução de problemas e a conformidade com a rubrica.
+
 <div align="center">
+
+[![Manual do Usuário em PDF](https://img.shields.io/badge/📘_Manual_do_Usuário-PDF-C0392B?style=for-the-badge)](IrrigacaoConfig/Manual%20de%20Instru%C3%A7%C3%B5es%20%E2%80%94%20Irriga%C3%A7%C3%A3o%20Inteligente.pdf)
+
+</div>
+
+| Seção do manual | Conteúdo |
+|---|---|
+| 1–3 | Introdução, visão geral da arquitetura e requisitos |
+| 4 | Hardware e pinagem das duas configurações do ESP32 |
+| 5 | Implantação e inicialização (AWS, FIWARE, API, dashboard, Wokwi, e-mail) |
+| 6–8 | Dashboard, assistente de IA e notificações por e-mail |
+| 9 | Controle local da irrigação e histerese |
+| 10–11 | Roteiro de testes (T01–T12) e solução de problemas |
+| 12–13 | Encerramento, segurança e conformidade com a rubrica |
+| Apêndices | API, estrutura do repositório, glossário, referências e equipe |
+
+> 📄 Arquivo: [Manual de Instruções — Irrigação Inteligente.pdf](IrrigacaoConfig/Manual%20de%20Instru%C3%A7%C3%B5es%20%E2%80%94%20Irriga%C3%A7%C3%A3o%20Inteligente.pdf)
+
+<div align="center">
+
+---
 
 🌿 *Tecnologia aplicada ao campo, dados transformados em informação e decisões mais conscientes.*
 
