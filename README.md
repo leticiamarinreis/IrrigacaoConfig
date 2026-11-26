@@ -577,14 +577,6 @@ irrigacao-inteligente/
 
 ---
 
-<a id="manual"></a>
-
-## 📖 Manual do Usuário
-
-Consulte as instruções de inicialização, utilização do dashboard, simulação e testes no **[Manual do Usuário](docs/manual-do-usuario.pdf)**.
-
----
-
 <div align="center">
 
 🌿 *Tecnologia aplicada ao campo, dados transformados em informação e decisões mais conscientes.*
